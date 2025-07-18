@@ -66,7 +66,7 @@ const Header = () => {
             <div className='flex space-x-2 lg:w-1/3 lg:justify-end' >
 
             {/* cart */}
-            <p className='flex items-center text-sm text-secodory font-semibold space-x-2 relative' >
+            <p className='flex items-center text-sm text-secondary font-semibold space-x-2 relative' >
                 <span> 00.00 $ </span>
                 <CiShoppingCart className='text-3xl ' />
                 <span className='bg-black text-white rounded-full w-5 h-5 flex items-center justify-center font-light absolute right-[-3px] top-[-3px]' >2</span>

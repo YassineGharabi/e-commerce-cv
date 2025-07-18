@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-secodory : #111827 ;
+  --color-secondary : #111827 ;
   --color-primary : #FF4C22 ;
 }
 
@@ -14,6 +14,6 @@ body {
 
 @layer components {
   .title-hover-style {
-    @apply relative text-secodory hover:opacity-90 after:content-[''] after:absolute after:left-0 after:bottom-[-10px] after:w-0 after:h-[2px] after:bg-black hover:after:w-3/4 after:transition-all after:duration-300 before:content-[''] before:absolute before:bg-amber-600 before:h-[2px] before:w-0 before:right-0 before:bottom-[-10px] hover:before:w-1/4 before:duration-300 before:transition-all;
+    @apply relative cursor-pointer text-secondary hover:opacity-90 after:content-[''] after:absolute after:left-0 after:bottom-[-10px] after:w-0 after:h-[2px] after:bg-black hover:after:w-3/4 after:transition-all after:duration-300 before:content-[''] before:absolute before:bg-amber-600 before:h-[2px] before:w-0 before:right-0 before:bottom-[-10px] hover:before:w-1/4 before:duration-300 before:transition-all;
   }
 }
