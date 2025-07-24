@@ -1,9 +1,14 @@
 import { IoIosClose } from "react-icons/io";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 
 const MenuMobile = ({setMobileMenu}) => {
-  return (
+
+    // menuLinksListe
+    const menuLinksListe = [ "PROMOTION" , "PRODUCT" , "ABOUT" , "CONTACT" ];
+
+    return (
     <motion.div 
     initial={{ x : 200 , opacity : 0 }}
     animate={{ x : 0 , opacity : 1 }}
@@ -14,20 +19,19 @@ const MenuMobile = ({setMobileMenu}) => {
             <IoIosClose onClick={()=> setMobileMenu( prevState => !prevState)} className='text-3xl lg:hidden' />
         </div>
 
+        {/* nav links */}
         <ul className=' bg-[#FAEDEB]'>
-            <li className="py-4 px-8 border-gray-300 border-b-1" >
-                <a href="#" className="title-hover-style text-sm" >PROMOTION</a>
-            </li>
-            <li className="py-4 px-8 border-gray-300 border-b-1" >
-                <a href="#" className="title-hover-style text-sm">PRODUCT</a>
-            </li>
-            <li className="py-4 px-8 border-gray-300 border-b-1" >
-                <a href="#" className="title-hover-style text-sm">ABOUT</a>
-            </li>
-            <li className="py-4 px-8 border-gray-300 border-b-1" >
-                <a href="#" className="title-hover-style text-sm">CONTACT</a>
-            </li>
+            {
+                menuLinksListe.map(
+                    (link,index) => (
+                        <li key={index} className="py-4 px-8 border-gray-300 border-b-1" >
+                            <Link href={link} className="title-hover-style text-sm" >{link}</Link>
+                        </li>
+                    )
+                )
+            }
         </ul>
+        
     </motion.div>
   )
 }

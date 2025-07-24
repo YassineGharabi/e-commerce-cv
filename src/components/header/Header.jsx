@@ -3,10 +3,14 @@ import logo from '../../assets/logo.png'
 import { IoIosMenu } from "react-icons/io";
 import { CiShoppingCart } from "react-icons/ci";
 import MenuMobile from './MenuMobile';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
     const [mobileMenu,setMobileMenu] = useState(false);
+
+    // menuLinksListe
+    const menuLinksListe = [ "PROMOTION" , "PRODUCT" , "ABOUT" , "CONTACT" ];
 
     // Change background color when menu opens
     useEffect(() => {
@@ -39,18 +43,15 @@ const Header = () => {
 
             {/* nav links */}
             <ul className='hidden lg:flex lg:space-x-4 lg:w-1/3 '>
-                <li>
-                    <a href="#" className="title-hover-style" >PROMOTION</a>
-                </li>
-                <li>
-                    <a href="#" className="title-hover-style">PRODUCT</a>
-                </li>
-                <li>
-                    <a href="#" className="title-hover-style">ABOUT</a>
-                </li>
-                <li>
-                    <a href="#" className="title-hover-style">CONTACT</a>
-                </li>
+                    {
+                        menuLinksListe.map(
+                            (link,index) => (
+                                <li key={index} >
+                                    <Link href={link} className="title-hover-style" >{link}</Link>
+                                </li>
+                            )
+                        )
+                    }
             </ul>
 
 
@@ -66,7 +67,7 @@ const Header = () => {
             <div className='flex space-x-2 lg:w-1/3 lg:justify-end' >
 
             {/* cart */}
-            <p className='flex items-center text-sm text-secondary font-semibold space-x-2 relative' >
+            <p className='flex items-center text-sm text-secondary space-x-2 relative' >
                 <span> 00.00 $ </span>
                 <CiShoppingCart className='text-3xl ' />
                 <span className='bg-black text-white rounded-full w-5 h-5 flex items-center justify-center font-light absolute right-[-3px] top-[-3px]' >2</span>
@@ -85,8 +86,6 @@ const Header = () => {
             mobileMenu && <MenuMobile setMobileMenu={setMobileMenu} /> 
         }
         
-
-
 
     </header>
   )
